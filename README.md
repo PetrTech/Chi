@@ -161,6 +161,33 @@ Make sure the server is public for all users, it shouldn't be a localhost-only p
 
 ### Website implementation
 
+#### \<chi-captcha\> without form
+
+An event listener can be attached to the \<chi-captcha\> element to listen for a solution.
+
+Example:
+```html
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <script src="https://chi.example.com/static/widget.js" defer></script>
+    </head>
+    <body>
+        <chi-captcha base-url="https://chi.example.com/"></chi-captcha>
+        <script>
+            document
+				.querySelector("chi-captcha")
+				.addEventListener("chi-solved", async (e) => {
+					const payload = e.detail; 
+					console.log(JSON.stringify(payload)); // this will print out the payload, which should be sent to the backend for verification
+				});
+        </script>
+    </body>
+</html>
+```
+
+#### \<chi-captcha\> inside \<form\>
+
 On your website, import the widget.js script from /static/widget.js. This allows you to use the \<chi-captcha base-url="https://your-captcha-server.tld/" \/> tag
 Valid captcha example:
 
@@ -178,8 +205,6 @@ Valid captcha example:
     </body>
 </html>
 ```
-
-> Note: The captcha must be used inside a form element, otherwise it cannot be verified by the backend.
 
 ### Backend implementation
 
