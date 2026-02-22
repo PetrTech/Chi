@@ -120,7 +120,7 @@ async function verifyNonce(nonce, challengeData) {
         headers: {
             'Content-Type': 'application/json',
             Accepts: 'application/json',
-            'x-chi-secret': '20ed00f12d9a38c028d68a1dc55cb5c70bfe969c11ee553e2150f732017154df',
+            'X-Chi-Secret': '20ed00f12d9a38c028d68a1dc55cb5c70bfe969c11ee553e2150f732017154df',
         },
         body: JSON.stringify({
             salt: challengeData.salt,

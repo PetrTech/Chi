@@ -5,14 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Chi</title>
         <link rel="stylesheet" href="/demo/style.css" />
+        <link rel="icon" type="image/png" href="/static/images/icon.png"/>
     </head>
     <body>
         <main>
+            <img src="/static/images/logo.png" class="logo" alt=""/>
             <h1>Chi is running!</h1>
             <p>
                 If you're seeing this (which you are), the service should be up
                 and running!
             </p>
+            <chi-captcha></chi-captcha>
+            <script src="/static/widget.js"></script>
             <iframe src="/static/widget.html" title="Chi captcha widget" style="border: none; overflow: hidden;" allowfullscreen="false" width="242" height="50" referrerpolicy="no-referrer"></iframe>
         </main>
     </body>

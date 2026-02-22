@@ -22,7 +22,7 @@ class ChiCaptcha extends HTMLElement {
         if (baseUrl && !baseUrl.startsWith(event.origin)) return;
 
         if (event.data.type === 'CHI_SOLVED') {
-            console.log("Solved!")
+            console.log("Solved!");
             this.dispatchEvent(new CustomEvent('chi-solved', {
                 detail: event.data.payload,
                 bubbles: true,
@@ -62,13 +62,13 @@ class ChiCaptcha extends HTMLElement {
             return;
         }
 
-        const widgetUrl = `${baseUrl.replace(/\/$/, '')}/widget`;
+        const widgetUrl = `${baseUrl.replace(/\/$/, '')}`;
         
         this.shadowRoot.innerHTML = `
             <style>
                 :host { display: inline-block; vertical-align: middle; }
             </style>
-            <iframe src="/static/widget.html" title="Chi captcha widget" style="border: none; overflow: hidden;" allowfullscreen="false" width="242" height="50" referrerpolicy="no-referrer"></iframe>
+            <iframe src="${widgetUrl}/static/widget.html" title="Chi captcha widget" style="border: none; overflow: hidden;" allowfullscreen="false" width="242" height="50" referrerpolicy="no-referrer"></iframe>
         `;
     }
 }

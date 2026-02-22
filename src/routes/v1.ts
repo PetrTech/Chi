@@ -3,20 +3,9 @@ import { generateChallenge, verifyChallenge } from "../controllers/captchaContro
 import slowDown from "express-slow-down";
 import rateLimit from "express-rate-limit";
 import { internal } from "../middleware/internal";
+import { challengeRateLimiter, challengeSpeedLimiter } from "../config/challenge";
 
 const router: Router = Router();
-
-const challengeSpeedLimiter = slowDown({
-    windowMs: 7.5 * 60 * 1000,
-    delayAfter: 2,
-    delayMs: (hits) => hits * 750
-});
-
-const challengeRateLimiter = rateLimit({
-    windowMs: 10 * 60 * 1000,
-    max: 25,
-    message: 'Too many requests, please try again later.',
-});
 
 router.get('/challenge', challengeSpeedLimiter, challengeRateLimiter, generateChallenge);
 router.post('/verify', internal, verifyChallenge);

@@ -4,6 +4,7 @@ import config from "../config";
 // Add other sites that require Chi here
 export const corsWhitelist = [
     `http://localhost:${config.port}`,
+    "http://localhost:3000"
 ];
 
 export const corsOptions: CorsOptions = {
@@ -15,7 +16,7 @@ export const corsOptions: CorsOptions = {
         }
     },
     methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "x-chi-secret"],
+    allowedHeaders: ["Content-Type", "X-Chi-Secret"],
     credentials: true,
     maxAge: 86400,
 };
