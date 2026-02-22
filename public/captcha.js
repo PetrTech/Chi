@@ -112,30 +112,6 @@ async function calculateNonce(max, targetHash, salt) {
     }
 }
 
-// shouldn't be called by client, only done for testing rn
-// success state should be shown as soon as the client finds a valid nonce!
-async function verifyNonce(nonce, challengeData) {
-    const verifyRequest = await fetch('/v1/verify', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Accepts: 'application/json',
-            'X-Chi-Secret': '20ed00f12d9a38c028d68a1dc55cb5c70bfe969c11ee553e2150f732017154df',
-        },
-        body: JSON.stringify({
-            salt: challengeData.salt,
-            nonce,
-            signature: challengeData.signature,
-            challenge: challengeData.challenge,
-            expiresAt: challengeData.expiresAt,
-        }),
-    });
-    if (!verifyRequest.ok) {
-        throw new Error('Failed to verify challenge!');
-    }
-    return verifyRequest.json();
-}
-
 let processingCaptcha = false;
 captchaBox.addEventListener('click', async (e) => {
     try {
