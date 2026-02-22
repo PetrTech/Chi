@@ -7,32 +7,45 @@ import rateLimit from 'express-rate-limit';
 import slowDown from 'express-slow-down';
 import { errorHandler } from './middleware/errorHandler';
 import { corsOptions, corsWhitelist } from './config/cors';
+import demo from './config/demo';
 
 const app: Express = express();
 const executionPath: string = process.cwd();
 const publicPath = join(executionPath, 'public');
+const privatePath = join(executionPath, 'private');
 
-app.use(helmet({
-    contentSecurityPolicy: {
-        directives: {
-            "default-src": ["'self'"],
-            "script-src": ["'self'"],
-            "frame-ancestors": ["'self'", ...corsWhitelist]
-        }
-    },
-    crossOriginResourcePolicy: {policy: "cross-origin"},
-}));
+app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                'default-src': ["'self'"],
+                'script-src': ["'self'"],
+                'frame-ancestors': ["'self'", ...corsWhitelist],
+            },
+        },
+        crossOriginResourcePolicy: { policy: 'cross-origin' },
+    }),
+);
 app.use(cors(corsOptions)); // automatically imported from /src/config/cors.ts, look there if you're looking to fix CORS
 
-app.use(express.json({
-    limit: '2kb'
-}));
+app.use(
+    express.json({
+        limit: '2kb',
+    }),
+);
 
 app.use('/static', express.static(publicPath));
+if(demo.captchaDemo){
+    app.use('/demo', express.static(join(privatePath, 'demo')));
+}
 app.use('/v1', v1Route);
 
 app.get('/', (req: Request, res: Response) => {
-    res.sendFile(join(publicPath, 'index.html'));
+    if (demo.captchaDemo) {
+        res.status(200).sendFile(join(privatePath, 'demo', 'index.html'));
+    } else {
+        res.status(200).json({status: 'OK'});
+    }
 });
 
 app.use(errorHandler);
