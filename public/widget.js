@@ -68,7 +68,7 @@ class ChiCaptcha extends HTMLElement {
             <style>
                 :host { display: inline-block; vertical-align: middle; }
             </style>
-            <iframe src="${widgetUrl}/static/widget.html" title="Chi captcha widget" style="border: none; overflow: hidden;" allowfullscreen="false" width="242" height="50" referrerpolicy="no-referrer"></iframe>
+            <iframe src="${widgetUrl}/static/widget.html" title="Chi captcha widget" style="border: none; overflow: hidden; color-scheme: auto;" allowtransparency="true" allowfullscreen="false" width="242" height="50" referrerpolicy="no-referrer"></iframe>
         `;
     }
 }
