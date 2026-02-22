@@ -208,10 +208,9 @@ Valid captcha example:
 
 ### Backend implementation
 
-#### \<chi-captcha\> inside \<form\>
+If the \<chi-captcha\> tag is inside a form, a chi-response field will automatically be passed from the front-end via form data. This field needs to be forwarded to the captcha server for verification. Otherwise, you have to pass the stringified payload manually (refer to [Chi Captcha without form](#chi-captcha-without-form))
 
-A chi-response field will automatically be passed from the front-end via form data. This field needs to be forwarded to the captcha server for verification.
-chi-response contains:
+chi-response/the payload contains:
 
 ```json
 {
