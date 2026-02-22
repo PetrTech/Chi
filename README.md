@@ -1,7 +1,7 @@
 ﻿# Chi - A simple proof-of-work captcha system
 
 <p align="center">
-    <img width="761" height="472" alt="Logo" src="https://github.com/user-attachments/assets/89f05f5a-bdcf-479a-bdad-6be4f91e5e5f" />
+    <img width="761" height="472" alt="Logo" src="https://github.com/PetrTech/Chi/blob/main/Logo.png" />
 </p>
 
 Chi is a simple self-hosted proof-of-work captcha system, built from the ground up with a focus on privacy and user-friendliness.
@@ -241,4 +241,5 @@ Currently planned features:
 
 - Other ways of verifying, including background or automatic checks via a library.
 - Optional stricter verification - will require the user to submit a JWT which includes basic browser information (e.g. as screen width)
+
 
