@@ -1,0 +1,166 @@
+@font-face {
+    font-family: 'SpaceGrotesk';
+    src: url(/static/fonts/SpaceGrotesk-VariableFont_wght.ttf)
+        format('truetype');
+
+    font-style: normal;
+}
+
+html, body {
+    margin: 0;
+    overflow: hidden;
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+}
+
+body{
+    padding: 1px;
+}
+
+:root {
+    --surface: #fdfdfd;
+    --surface-elevated: #f5f5f5;
+    --outline: #dcdcdc;
+    --text: #111;
+    --accent: rgb(0, 174, 255);
+}
+
+.checked {
+    padding: 0 !important;
+}
+
+.nohover {
+    cursor: unset !important;
+}
+
+.nohover * {
+    cursor: unset !important;
+}
+
+.vxchi * {
+    user-select: none;
+}
+
+.vxchi {
+    cursor: pointer;
+
+    width: 240px !important;
+    height: 48px !important;
+
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75em;
+
+    font-size: 16px;
+
+    background-color: var(--surface);
+    color: var(--text);
+
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: var(--outline);
+
+    box-sizing: border-box;
+    width: auto;
+
+    font-family: 'SpaceGrotesk';
+    font-weight: 500;
+
+    border-radius: 0.625em;
+
+    padding: 0.75em;
+}
+
+.vxchi-checkbox {
+    background-color: var(--surface-elevated);
+
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: var(--outline);
+
+    border: none;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+
+    margin: 0;
+
+    border-radius: 0.125em;
+}
+
+.vxchi-checkbox:focus {
+   outline-color: var(--accent);
+   outline-width: 3px; 
+}
+
+.vxchi-check {
+    width: 1.5em;
+    height: auto;
+}
+
+.vxchi-label label {
+    cursor: pointer;
+}
+
+.vxchi-source a {
+    font-size: .625em;
+    text-decoration: none;
+    color: var(--text);
+    cursor: pointer !important;
+}
+
+.vxchi-source a:hover {
+    text-decoration: underline;
+}
+
+.vxchi-source {
+    opacity: .5;
+}
+
+.vxchi-checkbox-wrapper{
+    position: relative;
+}
+
+.vxchi-checkbox-wrapper>*{
+    position: absolute;
+}
+
+.vxhidden {
+    transform: scale(0);
+    rotate: -15deg;
+    padding: 0;
+    opacity: 0;
+    transition: .05s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}
+
+.vxshown {
+    transform: scale(1);
+    rotate: 0;
+    opacity: 1;
+    transition: .25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.vxchi-checkbox-wrapper{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.vxspin {
+    animation-name: spinner;
+    animation-duration: .75s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-iteration-count: infinite;
+}
+
+@keyframes spinner {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

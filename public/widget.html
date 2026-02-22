@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chi Captcha Widget</title>
+        <link rel="stylesheet" href="/static/captcha.css" />
+    </head>
+    <body>
+        <div class="vxchi" id="vxchi">
+            <div class="vxchi-checkbox-wrapper">
+                <button
+                    type="button"
+                    class="vxchi-checkbox vxshown"
+                    id="vxchi-cb"
+                    aria-labelledby="vxchi-label"
+                    aria-checked="false"
+                    role="checkbox"
+                ></button>
+                <img
+                    class="vxchi-check vxhidden vxspin"
+                    src="/static/images/spinner.svg"
+                    id="vxchi-spinner"
+                    alt=""
+                />
+                <img
+                    class="vxchi-check vxhidden"
+                    src="/static/images/error.svg"
+                    id="vxchi-fail"
+                    alt=""
+                />
+                <img
+                    class="vxchi-check vxhidden"
+                    src="/static/images/check.svg"
+                    id="vxchi-check"
+                    alt=""
+                />
+            </div>
+
+            <div class="vxchi-label">
+                <label for="vxchi-checkbox">I'm a human</label>
+            </div>
+            <div class="vxchi-source">
+                <a
+                    href="https://github.com/PetrTech/Chi"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    >Powered by Chi</a
+                >
+            </div>
+        </div>
+
+        <script src="/static/captcha.js"></script>
+    </body>
+</html>
